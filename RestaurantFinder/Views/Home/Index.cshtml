@@ -1,0 +1,127 @@
+﻿
+<div class="row mtxl">
+    <div class="col-md-8 col-md-offset-2 txtc">
+        <div class="t-b fs24">Find restaurants near you</div> 
+        <div class="mts">
+            <input type="text" placeholder="Enter postcode (e.g. SE1)" id="searchInput" class="ps"/>
+            <button id="searchBtn">Go</button>
+        </div>
+        <div id="searchErrorMsg" class="hide">Sorry - there was a problem with your search. Please try again.</div>
+    </div>
+</div>
+
+<div id="resultsSection" class="mtxl ptxl">
+    <div id="resultsHeader" class="fs24 t-b mbs hide">
+        Available restaurants near <span id="headerSearchTerm"></span>
+    </div>
+    <div id="loader" class="txtc hide">
+        <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    </div>
+    <div id="restaurantResults" class="hide">
+    </div>    
+    <div class="row mtl">
+        <div id="restaurantResultsPaging" class="col-md-8 col-md-offset-2"></div>
+    </div>
+
+    <div id="noneAvailableMsg" class="hide">
+        <div>
+            Sorry - there are currently no available restaurants.
+        </div>
+    </div>
+</div>
+<script id="restaurantTpl" type="text/template">
+    <div class="row pbm ptm restaurantResult">
+        <div class="col-md-2 col-sm-3 col-xs-4 txtr">
+            {{#Logo}}
+                <img src="{{StandardResolutionUrl}}" />
+            {{/Logo}}
+        </div>
+        <div class="col-md-10 col-sm-9 col-xs-8 plm">
+            <div class="fs20 t-b">{{Name}}</div>
+            <div>
+                Cuisines: {{#CuisineTypes}}
+                    <span>{{Name}}</span>
+                {{/CuisineTypes}}
+            </div>
+            <div>
+                Rating: {{RatingAverage}}
+            </div>
+        </div>
+    </div>
+</script>
+
+<script type="text/javascript">
+    $(function() {
+        var templateHtml = $("#restaurantTpl").html();
+        var $restaurantResults = $("#restaurantResults");
+        var $searchButton = $("#searchBtn");
+        var $searchInput = $("#searchInput");
+        var $loader = $("#loader");
+        var $searchErrorMsg = $("#searchErrorMsg");
+        var $resultsHeader = $("#resultsHeader");
+        var $resultsHeaderSearchTerm = $resultsHeader.find("#headerSearchTerm");
+
+        var $noneAvailableMsg = $("#noneAvailableMsg");
+
+        $searchButton.click(function() {
+            var searchTerm = $searchInput.val();
+            if (!searchTerm) {
+                return;
+            }
+            $loader.removeClass("hide");
+            $searchErrorMsg.addClass("hide");
+            $restaurantResults.addClass("hide");
+            $resultsHeaderSearchTerm.text(searchTerm.toUpperCase());
+            findRestaurants(searchTerm);
+        });
+
+        function findRestaurants(searchTerm) {
+            $.ajax({
+                url: "@Url.Action("GetAvailableRestaurantsInArea", "Home")",
+                dataType: "json",
+                type: "GET",
+                data: { searchTerm: searchTerm },
+                success: onSuccess,
+                error: onError
+            });
+        };
+
+        function onSuccess(data) {
+            $resultsHeader.removeClass("hide");
+            $loader.addClass("hide");
+
+            if (!data.length) {
+                var outputHtml = $noneAvailableMsg.html();
+                $restaurantResults.html(outputHtml)
+                    .removeClass("hide");
+                $(window).scrollTop(0);
+                return;
+            }
+
+            $("#restaurantResultsPaging").pagination({
+                dataSource: data,
+                pageSize: 10,
+                callback: function(data, pagination) {
+                    var outputHtml = "";
+            
+                    for (var i = 0; i < data.length; i++) {
+                        outputHtml += Mustache.to_html(templateHtml, data[i]);
+                    }
+
+                    if (!outputHtml.length) {
+                        outputHtml = $noneAvailableMsg.html();
+                    }
+
+                    $restaurantResults.html(outputHtml)
+                        .removeClass("hide");
+                    $(window).scrollTop(0);
+                }
+            });
+        };
+
+        function onError(data) {
+            $searchErrorMsg.removeClass("hide");
+            $loader.addClass("hide");
+        }
+    })
+</script>

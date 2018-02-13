@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Just Devour</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/mustache")
+    <link rel="shortcut icon" type="image/x-icon" href="@Url.Content("Content/favicon_burger.ico")" />
+</head>
+<body>
+    <div class="navbar txtc ptm pbm">
+        @Html.ActionLink("Just Devour", "Index", "Home", new { area = "" }, new { @class = "fs40 cRed1 t-b" })
+        <div class="cRed1 fs16 italic">Food to you</div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Just Devour</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

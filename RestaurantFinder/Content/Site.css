@@ -1,0 +1,401 @@
+﻿body {
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.t-b {
+    font-weight: bold;
+}
+
+.t-n {
+    font-weight: normal;
+}
+
+.fs12 {
+    font-size: 12px;
+}
+
+.fs14 {
+    font-size: 14px;
+}
+
+.fs16 {
+    font-size: 16px;
+}
+
+.fs18 {
+    font-size: 18px;
+}
+
+.fs20 {
+    font-size: 20px;
+}
+
+.fs22 {
+    font-size: 22px;
+}
+
+.fs24 {
+    font-size: 24px;
+}
+
+.fs26 {
+    font-size: 26px;
+}
+
+.fs28 {
+    font-size: 28px;
+}
+
+.fs30 {
+    font-size: 30px;
+}
+
+.fs40 {
+    font-size: 40px;
+}
+
+.mtxl {
+    margin-top: 20px
+}
+
+.mtl {
+    margin-top: 16px
+}
+
+.mtm {
+    margin-top: 12px
+}
+
+.mts {
+    margin-top: 8px
+}
+
+.mtxs {
+    margin-top: 4px
+}
+
+.mlxl {
+    margin-left: 20px
+}
+
+.mll {
+    margin-left: 16px
+}
+
+.mlm {
+    margin-left: 12px
+}
+
+.mls {
+    margin-left: 8px
+}
+
+.mlxs {
+    margin-left: 4px
+}
+
+.mrxl {
+    margin-right: 20px
+}
+
+.mrl {
+    margin-right: 16px
+}
+
+.mrm {
+    margin-right: 12px
+}
+
+.mrs {
+    margin-right: 8px
+}
+
+.mrxs {
+    margin-right: 4px
+}
+
+.mbxl {
+    margin-bottom: 20px
+}
+
+.mbl {
+    margin-bottom: 16px
+}
+
+.mbm {
+    margin-bottom: 12px
+}
+
+.mbs {
+    margin-bottom: 8px
+}
+
+.mbxs {
+    margin-bottom: 4px
+}
+
+.mxl {
+    margin: 20px
+}
+
+.ml {
+    margin: 16px
+}
+
+.mm {
+    margin: 12px
+}
+
+.ms {
+    margin: 8px
+}
+
+.mxs {
+    margin: 4px
+}
+
+.ptxl {
+    padding-top: 20px
+}
+
+.ptl {
+    padding-top: 16px
+}
+
+.ptm {
+    padding-top: 12px
+}
+
+.pts {
+    padding-top: 8px
+}
+
+.ptxs {
+    padding-top: 4px
+}
+
+.plxl {
+    padding-left: 20px
+}
+
+.pll {
+    padding-left: 16px
+}
+
+.plm {
+    padding-left: 12px
+}
+
+.pls {
+    padding-left: 8px
+}
+
+.plxs {
+    padding-left: 4px
+}
+
+.pbxl {
+    padding-bottom: 20px
+}
+
+.pbl {
+    padding-bottom: 16px
+}
+
+.pbm {
+    padding-bottom: 12px
+}
+
+.pbs {
+    padding-bottom: 8px
+}
+
+.pbxs {
+    padding-bottom: 4px
+}
+
+.prxl {
+    padding-right: 20px
+}
+
+.prl {
+    padding-right: 16px
+}
+
+.prm {
+    padding-right: 12px
+}
+
+.prs {
+    padding-right: 8px
+}
+
+.prxs {
+    padding-right: 4px
+}
+
+.pxl {
+    padding: 20px
+}
+
+.pl {
+    padding: 16px
+}
+
+.pm {
+    padding: 12px
+}
+
+.ps {
+    padding: 8px
+}
+
+.pxs {
+    padding: 4px
+}
+
+.txtc {
+    text-align: center;
+}
+
+.txtr {
+    text-align: right;
+}
+
+.txtl {
+    text-align: left;
+}
+
+.cRed1 {
+    color: #fa0029;
+}
+
+.navbar {
+    border-bottom: 1px solid #aaa;
+}
+
+#searchInput {
+    min-width: 250px;
+    min-height: 40px;
+}
+
+#searchBtn {
+    background-color: #fa0029;
+    color: white;
+    min-height: 40px;
+    min-width: 50px;
+    border: 0px;
+}
+
+
+.lds-spinner {
+    color: official;
+    display: inline-block;
+    position: relative;
+    width: 64px;
+    height: 64px;
+}
+.lds-spinner div {
+    transform-origin: 32px 32px;
+    animation: lds-spinner 1.2s linear infinite;
+}
+.lds-spinner div:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 3px;
+    left: 29px;
+    width: 5px;
+    height: 14px;
+    border-radius: 20%;
+    background: #aaa;
+}
+.lds-spinner div:nth-child(1) {
+    transform: rotate(0deg);
+    animation-delay: -1.1s;
+}
+.lds-spinner div:nth-child(2) {
+    transform: rotate(30deg);
+    animation-delay: -1s;
+}
+.lds-spinner div:nth-child(3) {
+    transform: rotate(60deg);
+    animation-delay: -0.9s;
+}
+.lds-spinner div:nth-child(4) {
+    transform: rotate(90deg);
+    animation-delay: -0.8s;
+}
+.lds-spinner div:nth-child(5) {
+    transform: rotate(120deg);
+    animation-delay: -0.7s;
+}
+.lds-spinner div:nth-child(6) {
+    transform: rotate(150deg);
+    animation-delay: -0.6s;
+}
+.lds-spinner div:nth-child(7) {
+    transform: rotate(180deg);
+    animation-delay: -0.5s;
+}
+.lds-spinner div:nth-child(8) {
+    transform: rotate(210deg);
+    animation-delay: -0.4s;
+}
+.lds-spinner div:nth-child(9) {
+    transform: rotate(240deg);
+    animation-delay: -0.3s;
+}
+.lds-spinner div:nth-child(10) {
+    transform: rotate(270deg);
+    animation-delay: -0.2s;
+}
+.lds-spinner div:nth-child(11) {
+    transform: rotate(300deg);
+    animation-delay: -0.1s;
+}
+.lds-spinner div:nth-child(12) {
+    transform: rotate(330deg);
+    animation-delay: 0s;
+}
+@keyframes lds-spinner {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.hide {
+    display: none;
+}
+
+.restaurantResult {
+    border-top: 1px solid #aaa;
+    border-collapse: collapse;
+}
+
+.italic {
+    font-style: italic;
+}
